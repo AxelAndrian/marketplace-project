@@ -128,7 +128,12 @@
                             </FormItem>
                         </FormField>
                     </CardContent>
-                    <CardFooter class="flex justify-end mt-6">
+                    <CardFooter class="flex justify-end items-center gap-2 mt-6">
+                        <Button variant="outline" as-child>
+                            <RouterLink to="/products">
+                                Cancel
+                            </RouterLink>
+                        </Button>
                         <Button type="submit" :disabled="isLoading">
                             <Loader2 class="w-4 h-4 mr-2 animate-spin" v-if="isLoading" />
                             Create
