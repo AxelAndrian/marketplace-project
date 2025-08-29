@@ -17,6 +17,7 @@
     import { Input } from '@/components/ui/input';
     import { Button } from '@/components/ui/button';
     import { Label } from '@/components/ui/label';
+    import Skeleton from '@/components/ui/skeleton/Skeleton.vue';
 
     import { useProductStore } from '@/stores/products';
 
@@ -72,28 +73,35 @@
                     <CardContent class="grid grid-cols-2 gap-6">
                         <div class="space-y-1.5">
                             <Label>Title</Label>
-                            <Input type="text" placeholder="Input Title" :value="productStore.product.title || '-'" disabled />
+                            <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
+                            <Input v-else type="text" placeholder="Input Title" :model-value="productStore.product.title || '-'" disabled />
                         </div>
                         <div class="space-y-1.5">
                             <Label>Price</Label>
-                            <Input type="number" placeholder="Input Price" :value="productStore.product.price || 0" disabled />
+                            <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
+                            <Input v-else type="number" placeholder="Input Price" :model-value="productStore.product.price || 0" disabled />
                         </div>
                         <div class="space-y-1.5">
                             <Label>Category</Label>
-                            <Input type="text" placeholder="Input Category" :value="productStore.product.category || '-'" disabled />
+                            <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
+                            <Input v-else type="text" placeholder="Input Category" :model-value="productStore.product.category || '-'" disabled />
                         </div>
                         <div class="space-y-1.5">
                             <Label>Image</Label>
-                            <Input type="text" placeholder="Input Image" :value="productStore.product.image || '-'" disabled />
+                            <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
+                            <Input v-else type="text" placeholder="Input Image" :model-value="productStore.product.image || '-'" disabled />
                         </div>
                         <div class="col-span-2 space-y-1.5">
                             <Label>Description</Label>
-                            <Textarea placeholder="Input Description" :value="productStore.product.description || '-'" disabled />
+                            <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
+                            <Textarea v-else placeholder="Input Description" :model-value="productStore.product.description || '-'" disabled />
                         </div>
                     </CardContent>
                     <CardFooter class="flex justify-end mt-6">
-                        <Button type="submit" :disabled="isLoading">
-                            Back
+                        <Button :disabled="isLoading" as-child>
+                            <RouterLink to="/products">
+                                Back
+                            </RouterLink>
                         </Button>
                     </CardFooter>
                 </form>
