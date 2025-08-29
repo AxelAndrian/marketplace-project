@@ -57,7 +57,7 @@
                             <span class="sr-only">Toggle theme</span>
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="end" class="z-[1001]">
                         <DropdownMenuItem @click="mode = 'light'">
                             Light
                         </DropdownMenuItem>
