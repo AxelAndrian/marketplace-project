@@ -22,7 +22,7 @@
     import { Button } from '@/components/ui/button';
     import { Input } from '@/components/ui/input';
 
-    import { useProductStore } from '@/stores/products';
+    import { useProductStore } from './_store';
     import { productSchema } from './_interfaces';
 
     const isLoading = ref(false);

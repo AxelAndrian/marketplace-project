@@ -19,7 +19,7 @@
     import { Label } from '@/components/ui/label';
     import Skeleton from '@/components/ui/skeleton/Skeleton.vue';
 
-    import { useProductStore } from '@/stores/products';
+    import { useProductStore } from './_store';
 
     const isLoading = ref(false);
 

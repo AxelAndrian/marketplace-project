@@ -9,7 +9,7 @@
     import { Icon } from '@iconify/vue'
     import { ref } from 'vue';
     
-    import { useAuthStore } from '@/stores/auth';
+    import { useAuthStore } from './_store';
     import { loginSchema } from './_interfaces/login';
 
     import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';

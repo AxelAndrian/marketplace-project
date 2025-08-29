@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 import Cookies from "js-cookie";
-import type { LoginForm } from "@/pages/auth/_types/login";
+import type { LoginForm } from "../_types/login";
 import api from "@/lib/axios";
 
 export const useAuthStore = defineStore("auth", {

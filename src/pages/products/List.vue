@@ -17,7 +17,7 @@
     import dataTable from './_components/data-table.vue';
     import { columns } from './_components/column';
 
-    import { useProductStore } from '@/stores/products';
+    import { useProductStore } from './_store';
 
     const productStore = useProductStore();
     const isLoading = ref(false);
