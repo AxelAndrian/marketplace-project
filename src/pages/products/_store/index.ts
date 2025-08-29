@@ -1,23 +1,23 @@
-import { defineStore } from "pinia";
-import api from "@/lib/axios";
-import type { Product } from "../_types";
+import { defineStore } from 'pinia';
+import api from '@/lib/axios';
+import type { Product } from '../_types';
 
-export const useProductStore = defineStore("products", {
+export const useProductStore = defineStore('products', {
   state: () => ({
     products: [] as Array<Product>,
     product: {} as Product,
   }),
   actions: {
     async fetchProducts() {
-      const result = await api.get<Array<Product>>("products");
+      const result = await api.get<Array<Product>>('products');
 
       if (result.status !== 200) {
-        throw new Error("Login failed");
+        throw new Error('Login failed');
       }
 
       this.products = result.data;
       localStorage.setItem(
-        "productsLength",
+        'productsLength',
         JSON.stringify(this.products.length)
       );
     },
@@ -25,16 +25,16 @@ export const useProductStore = defineStore("products", {
       const result = await api.get<Product>(`products/${id}`);
 
       if (!result) {
-        throw new Error("Fetch product failed");
+        throw new Error('Fetch product failed');
       }
 
       this.product = result.data;
     },
     async createProduct(payload: Product) {
-      const result = await api.post<Product>("products", payload);
+      const result = await api.post<Product>('products', payload);
 
       if (result.status !== 201) {
-        throw new Error("Create product failed");
+        throw new Error('Create product failed');
       }
     },
   },

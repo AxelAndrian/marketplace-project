@@ -1,45 +1,56 @@
 <script setup lang="ts" generic="TData">
-    import { type Table } from '@tanstack/vue-table'
-    import { ChevronLeft, ChevronRight, ChevronsLeft, ChevronsRight } from 'lucide-vue-next'
+import { type Table } from '@tanstack/vue-table';
+import {
+  ChevronLeft,
+  ChevronRight,
+  ChevronsLeft,
+  ChevronsRight,
+} from 'lucide-vue-next';
 
-    import { Button } from '@/components/ui/button'
-    import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-    } from '@/components/ui/select'
+import { Button } from '@/components/ui/button';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
-    interface DataTablePaginationProps {
-        table: Table<TData>
-    }
+interface DataTablePaginationProps {
+  table: Table<TData>;
+}
 
-    defineProps<DataTablePaginationProps>()
+defineProps<DataTablePaginationProps>();
 </script>
 
 <template>
   <div class="flex items-center justify-between px-2">
     <div class="flex items-center space-x-2">
-        <p class="text-sm font-medium">
-          Rows per page
-        </p>
-        <Select
-          :model-value="`${table.getState().pagination.pageSize}`"
-          @update:model-value="value => table.setPageSize(Number(value))"
-        >
-          <SelectTrigger class="h-8 w-[70px]">
-            <SelectValue :placeholder="`${table.getState().pagination.pageSize}`" />
-          </SelectTrigger>
-          <SelectContent side="top">
-            <SelectItem v-for="pageSize in [10, 20, 30, 40, 50]" :key="pageSize" :value="`${pageSize}`">
-              {{ pageSize }}
-            </SelectItem>
-          </SelectContent>
-        </Select>
-      </div>
+      <p class="text-sm font-medium">Rows per page</p>
+      <Select
+        :model-value="`${table.getState().pagination.pageSize}`"
+        @update:model-value="(value) => table.setPageSize(Number(value))"
+      >
+        <SelectTrigger class="h-8 w-[70px]">
+          <SelectValue
+            :placeholder="`${table.getState().pagination.pageSize}`"
+          />
+        </SelectTrigger>
+        <SelectContent side="top">
+          <SelectItem
+            v-for="pageSize in [10, 20, 30, 40, 50]"
+            :key="pageSize"
+            :value="`${pageSize}`"
+          >
+            {{ pageSize }}
+          </SelectItem>
+        </SelectContent>
+      </Select>
+    </div>
     <div class="flex items-center space-x-6 lg:space-x-8">
-      <div class="hidden sm:flex w-[100px] items-center justify-center text-sm font-medium">
+      <div
+        class="hidden sm:flex w-[100px] items-center justify-center text-sm font-medium"
+      >
         Page {{ table.getState().pagination.pageIndex + 1 }} of
         {{ table.getPageCount() }}
       </div>
