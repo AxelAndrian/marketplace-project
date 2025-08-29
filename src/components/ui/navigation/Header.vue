@@ -21,8 +21,8 @@
 </script>
 
 <template>
-    <div class="mt-6 flex justify-center items-center">
-        <nav class="bg-card text-card-foreground flex items-center gap-6 py-4 px-6 shadow-sm border rounded-full w-auto">
+    <div class="mt-3 sm:mt-6 flex justify-center items-center sticky top-4 z-[1000]">
+        <nav class="bg-card text-card-foreground flex items-center gap-6 py-2 sm:py-4 px-4 sm:px-6 shadow-sm border rounded-full w-auto">
             <Button variant="ghost" as-child>
                 <RouterLink to="/">
                     <House :size="20" />

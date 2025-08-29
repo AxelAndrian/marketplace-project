@@ -81,7 +81,7 @@
                     <CardTitle class="text-2xl font-semibold">Create Product</CardTitle>
                 </CardHeader>
                 <form @submit="onSubmit">
-                    <CardContent class="grid grid-cols-2 gap-6">
+                    <CardContent class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <FormField v-slot="{ componentField }" name="title">
                             <FormItem v-auto-animate>
                                 <FormLabel>Title</FormLabel>
@@ -119,7 +119,7 @@
                             </FormItem>
                         </FormField>
                         <FormField v-slot="{ componentField }" name="description">
-                            <FormItem v-auto-animate class="col-span-2">
+                            <FormItem v-auto-animate class="sm:col-span-2">
                                 <FormLabel>Description</FormLabel>
                                 <FormControl>
                                     <Textarea placeholder="Input Description" v-bind="componentField" />

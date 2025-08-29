@@ -70,7 +70,7 @@
                     <CardTitle class="text-2xl font-semibold">Detail Product</CardTitle>
                 </CardHeader>
                 <form>
-                    <CardContent class="grid grid-cols-2 gap-6">
+                    <CardContent class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div class="space-y-1.5">
                             <Label>Title</Label>
                             <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
@@ -91,7 +91,7 @@
                             <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
                             <Input v-else type="text" placeholder="Input Image" :model-value="productStore.product.image || '-'" disabled />
                         </div>
-                        <div class="col-span-2 space-y-1.5">
+                        <div class="sm:col-span-2 space-y-1.5">
                             <Label>Description</Label>
                             <Skeleton v-if="isLoading" class="h-10 w-full rounded-md" />
                             <Textarea v-else placeholder="Input Description" :model-value="productStore.product.description || '-'" disabled />
