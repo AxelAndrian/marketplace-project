@@ -41,7 +41,7 @@
                             <Icon icon="radix-icons:person" class="h-[1.2rem] w-[1.2rem]" />
                         </Button>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end">
+                    <DropdownMenuContent align="end" class="z-[1001]">
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuItem @click="handleLogout">
